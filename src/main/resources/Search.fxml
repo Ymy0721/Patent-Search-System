@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<AnchorPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.ui.SearchController"
+            prefHeight="600.0" prefWidth="1200.0">
+    <children>
+        <VBox AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+            <children>
+                <MenuBar>
+                    <menus>
+                        <Menu text="文件">
+                            <items>
+                                <MenuItem onAction="#handleNew" text="新建" accelerator="SHORTCUT+N" />
+                                <MenuItem onAction="#handleOpen" text="打开" accelerator="SHORTCUT+O" />
+                                <MenuItem onAction="#handleSave" text="保存" accelerator="SHORTCUT+S" />
+                                <MenuItem onAction="#handleSaveAs" text="另存为" accelerator="SHORTCUT+S" />
+                                <MenuItem onAction="#handleImport" text="导入" accelerator="SHORTCUT+I" />
+                                <MenuItem onAction="#handleExport" text="导出" accelerator="SHORTCUT+E" />
+                                <MenuItem onAction="#handlePrint" text="打印" accelerator="SHORTCUT+P" />
+                                <MenuItem onAction="#handleExit" text="退出" accelerator="SHORTCUT+Q" />
+                            </items>
+                        </Menu>
+                        <Menu text="编辑">
+                            <items>
+                                <MenuItem onAction="#handleSelectAll" text="全选" accelerator="SHORTCUT+A" />
+                                <MenuItem onAction="#handleDeselect" text="取消选择" />
+                                <MenuItem onAction="#handleRedo" text="撤销" accelerator="SHORTCUT+Z" />
+                                <MenuItem onAction="#handleUndo" text="恢复" accelerator="SHORTCUT+Y" />
+                                <MenuItem onAction="#handleCopy" text="复制" accelerator="SHORTCUT+C" />
+                                <MenuItem onAction="#handlePaste" text="粘贴" accelerator="SHORTCUT+V" />
+                            </items>
+                        </Menu>
+                        <Menu text="视图">
+                            <items>
+                                <MenuItem onAction="#handleRefresh" text="刷新" accelerator="SHORTCUT+R" />
+                                <MenuItem onAction="#handleFullScreen" text="全屏" accelerator="ALT+ENTER" />
+                                <MenuItem onAction="#handleViewOptions" text="视图选项" />
+                            </items>
+                        </Menu>
+                        <Menu text="检索">
+                            <items>
+                                <MenuItem onAction="#handleSimpleSearch" text="简单检索" />
+                                <MenuItem onAction="#handleAdvancedSearch" text="高级检索" />
+                            </items>
+                        </Menu>
+                        <Menu text="工具">
+                            <items>
+                                <MenuItem onAction="#handleView" text="查看详情" accelerator="SHORTCUT+F" />
+                                <MenuItem onAction="#handleCitePatents" text="文献引用" accelerator="ALT+C" />
+                                <MenuItem onAction="#handleHistory" text="检索历史" accelerator="SHORTCUT+H" />
+                                <MenuItem onAction="#handleAssistant" text="检索助手" />
+                                <MenuItem onAction="#handleSettings" text="设置" />
+                            </items>
+                        </Menu>
+                        <Menu text="帮助">
+                            <items>
+                                <MenuItem onAction="#handleUserManual" text="用户手册" />
+                                <MenuItem onAction="#handleFAQ" text="FAQ" />
+                                <MenuItem onAction="#handleContactSupport" text="联系支持" />
+                                <MenuItem onAction="#handleAbout" text="关于" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10" />
+                    </padding>
+                    <children>
+                        <Label text="关键词" minWidth="50" />
+                        <TextField fx:id="keywordField" />
+                        <Label text="起始日期" minWidth="50" />
+                        <DatePicker fx:id="startDatePicker" />
+                        <Label text="截止日期" minWidth="50" />
+                        <DatePicker fx:id="endDatePicker" />
+                        <Button fx:id="searchButton" onAction="#handleSearch" text="检索" />
+                        <Label fx:id="resultsCountLabel" />
+                        <Button fx:id="analysisButton" onAction="#handleAnalysis" text="分析" />
+                        <Label text="每页显示" minWidth="50" />
+                        <ComboBox fx:id="itemsPerPageComboBox" />
+                    </children>
+                </HBox>
+                   <TableView fx:id="resultsTable" VBox.vgrow="ALWAYS" >
+                       <columns>
+                           <TableColumn fx:id="applicationNumberColumn" text="申请号" />
+                           <TableColumn fx:id="publicationNumberColumn" text="公开（公告）号" />
+                           <TableColumn fx:id="applicationDateColumn" text="申请日" />
+                           <TableColumn fx:id="publicationDateColumn" text="公开（公告）日" />
+                           <TableColumn fx:id="ipcClassificationColumn" text="IPC分类号" />
+                           <TableColumn fx:id="documentTypeColumn" text="文献类型" />
+                           <TableColumn fx:id="inventionNameColumn" text="发明名称" />
+                           <TableColumn fx:id="inventorColumn" text="发明人" />
+                           <TableColumn fx:id="applicantColumn" text="申请（专利权）人" />
+                           <TableColumn fx:id="applicantCountryColumn" text="申请人所在国（省）" />
+                           <TableColumn fx:id="abstractColumn" text="摘要" />
+                           <TableColumn fx:id="applicantPostalCodeColumn" text="申请人邮编" />
+                           <TableColumn fx:id="agentColumn" text="代理人" />
+                           <TableColumn fx:id="agencyColumn" text="代理机构" />
+                       </columns>
+                   </TableView>
+                <Pagination fx:id="pagination" />
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

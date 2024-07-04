@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.collections.FXCollections?>
+<AnchorPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.ui.PatentManageController"
+            prefHeight="800.0" prefWidth="1200.0">
+    <children>
+        <VBox AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+            <children>
+                <MenuBar>
+                    <menus>
+                        <Menu text="文件">
+                            <items>
+                                <MenuItem onAction="#handleNew" text="新建" accelerator="SHORTCUT+N" />
+                                <MenuItem onAction="#handleOpen" text="打开" accelerator="SHORTCUT+O" />
+                                <MenuItem onAction="#handleSave" text="保存" accelerator="SHORTCUT+S" />
+                                <MenuItem onAction="#handleSaveAs" text="另存为" accelerator="SHORTCUT+S" />
+                                <MenuItem onAction="#handleImport" text="导入" accelerator="SHORTCUT+I" />
+                                <MenuItem onAction="#handleExport" text="导出" accelerator="SHORTCUT+E" />
+                                <MenuItem onAction="#handlePrint" text="打印" accelerator="SHORTCUT+P" />
+                                <MenuItem onAction="#handleExit" text="退出" accelerator="SHORTCUT+Q" />
+                            </items>
+                        </Menu>
+                        <Menu text="编辑">
+                            <items>
+                                <MenuItem onAction="#handleSelectAll" text="全选" accelerator="SHORTCUT+A" />
+                                <MenuItem onAction="#handleDeselect" text="取消选择" />
+                                <MenuItem onAction="#handleRedo" text="撤销" accelerator="SHORTCUT+Z" />
+                                <MenuItem onAction="#handleUndo" text="恢复" accelerator="SHORTCUT+Y" />
+                                <MenuItem onAction="#handleCopy" text="复制" accelerator="SHORTCUT+C" />
+                                <MenuItem onAction="#handlePaste" text="粘贴" accelerator="SHORTCUT+V" />
+                            </items>
+                        </Menu>
+                        <Menu text="视图">
+                            <items>
+                                <MenuItem onAction="#handleRefresh" text="刷新" accelerator="SHORTCUT+R" />
+                                <MenuItem onAction="#handleFullScreen" text="全屏" accelerator="ALT+ENTER" />                                <MenuItem onAction="#handleViewOptions" text="视图选项" />
+                            </items>
+                        </Menu>
+                        <Menu text="检索">
+                            <items>
+                                <MenuItem onAction="#handleSimpleSearch" text="简单检索" />
+                                <MenuItem onAction="#handleAdvancedSearch" text="高级检索" />
+                            </items>
+                        </Menu>
+                        <Menu text="工具">
+                            <items>
+                                <MenuItem onAction="#handleView" text="查看详情" accelerator="SHORTCUT+F" />
+                                <MenuItem onAction="#handleCitePatents" text="文献引用" accelerator="ALT+C" />
+                                <MenuItem onAction="#handleHistory" text="检索历史" accelerator="SHORTCUT+H" />                                <MenuItem onAction="#handleAssistant" text="检索助手" />
+                                <MenuItem onAction="#handleSettings" text="设置" />
+                            </items>
+                        </Menu>
+                        <Menu text="帮助">
+                            <items>
+                                <MenuItem onAction="#handleUserManual" text="用户手册" />
+                                <MenuItem onAction="#handleFAQ" text="FAQ" />
+                                <MenuItem onAction="#handleContactSupport" text="联系支持" />
+                                <MenuItem onAction="#handleAbout" text="关于" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+                <VBox spacing="10">
+                    <padding>
+                        <Insets bottom="10" left="10" right="10" top="10" />
+                    </padding>
+                    <children>
+                        <TitledPane text="检索范围">
+                            <content>
+                                <GridPane hgap="10" vgap="10">
+                                   <children>
+                                       <Label text="专利类型" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                       <CheckBox fx:id="patentTypeInvention" minWidth="70" text="发明" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                       <CheckBox fx:id="patentTypeUtilityModel" minWidth="70" text="实用新型" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                       <CheckBox fx:id="patentTypeDesign" minWidth="70" text="外观设计" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                       <Label text="主要国家/地区" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                       <CheckBox fx:id="countryCN" minWidth="70" text="中国" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                       <CheckBox fx:id="countryUS" minWidth="70" text="美国" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                       <CheckBox fx:id="countryJP" minWidth="70" text="日本" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                       <CheckBox fx:id="countryDE" minWidth="70" text="德国" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                       <CheckBox fx:id="countryKR" minWidth="70" text="韩国" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                       <CheckBox fx:id="countrySE" minWidth="70" text="瑞典" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                                       <CheckBox fx:id="countryFR" minWidth="70" text="法国" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                                       <CheckBox fx:id="countryFI" minWidth="70" text="芬兰" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+                                       <CheckBox fx:id="countryIL" minWidth="70" text="以色列" GridPane.columnIndex="9" GridPane.rowIndex="1" />
+                                       <CheckBox fx:id="countryNL" minWidth="70" text="荷兰" GridPane.columnIndex="10" GridPane.rowIndex="1" />
+                                       <CheckBox fx:id="countryKY" minWidth="70" text="开曼" GridPane.columnIndex="11" GridPane.rowIndex="1" />
+                                   </children>
+                           <columnConstraints>
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
+                                </GridPane>
+                            </content>
+                        </TitledPane>
+                        <TitledPane text="时间筛选">
+                            <content>
+                                <GridPane hgap="10">
+                                   <children>
+                                       <Label text="起始日期" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                       <DatePicker fx:id="startDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                       <Label text="截止日期" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                       <DatePicker fx:id="endDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                   </children>
+                           <columnConstraints>
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
+                                </GridPane>
+                            </content>
+                        </TitledPane>
+                        <TitledPane text="检索项">
+                            <content>
+                                <GridPane hgap="10" vgap="10">
+                                   <children>
+                                       <Label text="申请号" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                       <TextField fx:id="applicationNumberField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                       <Label text="公开号" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                                       <TextField fx:id="applicationDateField" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                                       <Label text="IPC分类号" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+                                       <TextField fx:id="publicationNumberField" GridPane.columnIndex="5" GridPane.rowIndex="0" />
+                                       <Label text="代理人" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                       <TextField fx:id="agentField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                       <Label text="代理机构" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                       <TextField fx:id="agencyField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                       <Label text="申请人邮编" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                                       <TextField fx:id="applicantPostalCodeField" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                                       <Label text="发明人" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                       <TextField fx:id="inventorField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                       <Label text="发明名称" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                       <TextField fx:id="inventionNameField" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                       <Label text="摘要" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                                       <TextField fx:id="abstractTextField" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                                   </children>
+                           <columnConstraints>
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
+                                </GridPane>
+                            </content>
+                        </TitledPane>
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <children>
+                                <Button fx:id="searchButton" onAction="#handleSearch" text="检索" />
+                                <Label fx:id="resultsCountLabel" />
+                                <Button fx:id="analysisButton" onAction="#handleAnalysis" text="分析" />
+                                <Label text="每页显示" minWidth="50" />
+                                <ComboBox fx:id="itemsPerPageComboBox" />
+                                <Label text="编辑模式：" />
+                                <ComboBox fx:id="editModeComboBox" onAction="#handleEditModeChange">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="检索专利" />
+                                            <String fx:value="插入专利" />
+                                            <String fx:value="修改专利" />
+                                            <String fx:value="删除专利" />
+                                        </FXCollections>
+                                    </items>
+                                </ComboBox>
+                                <Button fx:id="submitButton" onAction="#handleSubmit" text="提交" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            <VBox spacing="10" VBox.vgrow="ALWAYS">
+                <padding>
+                    <Insets bottom="10" left="10" right="10" />
+                </padding>
+               <children>
+                   <VBox VBox.vgrow="ALWAYS">
+                   <TableView fx:id="resultsTable" VBox.vgrow="ALWAYS">
+                          <columns>
+                              <TableColumn fx:id="applicationNumberColumn" text="申请号" />
+                              <TableColumn fx:id="publicationNumberColumn" text="公开（公告）号" />
+                              <TableColumn fx:id="applicationDateColumn" text="申请日" />
+                              <TableColumn fx:id="publicationDateColumn" text="公开（公告）日" />
+                              <TableColumn fx:id="ipcClassificationColumn" text="IPC分类号" />
+                              <TableColumn fx:id="documentTypeColumn" text="文献类型" />
+                              <TableColumn fx:id="inventionNameColumn" text="发明名称" />
+                              <TableColumn fx:id="inventorColumn" text="发明人" />
+                              <TableColumn fx:id="applicantColumn" text="申请（专利权）人" />
+                              <TableColumn fx:id="applicantCountryColumn" text="申请人所在国（省）" />
+                              <TableColumn fx:id="abstractColumn" text="摘要" />
+                              <TableColumn fx:id="applicantPostalCodeColumn" text="申请人邮编" />
+                              <TableColumn fx:id="agentColumn" text="代理人" />
+                              <TableColumn fx:id="agencyColumn" text="代理机构" />
+                          </columns>
+                      </TableView>
+                       <Pagination fx:id="pagination" />
+                     </VBox>
+               </children>
+            </VBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

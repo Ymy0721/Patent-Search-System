@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.collections.FXCollections?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.ui.AnalysisController"
+            prefHeight="600.0" prefWidth="800.0">
+
+    <BorderPane AnchorPane.topAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+        <top>
+            <GridPane fx:id="analysisPane" hgap="10" vgap="10">
+                <Label text="分析维度" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <ComboBox fx:id="analysisComboBox" onAction="#handleAnalyze" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="时间分析" />
+                            <String fx:value="申请人分析" />
+                            <String fx:value="发明人分析" />
+                            <String fx:value="技术领域分析" />
+                            <String fx:value="区域分析" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <Label text="时间范围" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <DatePicker fx:id="startDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <DatePicker fx:id="endDatePicker" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <Button fx:id="analyzeButton" onAction="#handleAnalyze" text="分析" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                <Button fx:id="resetButton" onAction="#handleReset" text="重置" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                <Label text="图表类型" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <ChoiceBox fx:id="chartTypeChoiceBox" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="饼图" />
+                            <String fx:value="柱状图" />
+                            <String fx:value="折线图" />
+                            <String fx:value="表格" />
+                        </FXCollections>
+                    </items>
+                </ChoiceBox>
+                <HBox GridPane.columnIndex="2" GridPane.rowIndex="2">
+                    <Label text="显示前" />
+                    <TextField fx:id="topResultsTextField" prefWidth="40.0"/>
+                    <Label text="个结果" />
+                </HBox>
+                <Button fx:id="exportImageButton" onAction="#handleExportImage" text="保存图片" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            </GridPane>
+        </top>
+
+        <center>
+            <VBox fx:id="filterPane">
+                <StackPane fx:id="chartPane" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </center>
+    </BorderPane>
+</AnchorPane>

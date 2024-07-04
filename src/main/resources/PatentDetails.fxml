@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.ui.PatentDetailsController" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" style="-fx-padding: 15;">
+    <GridPane hgap="10" vgap="10" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="NEVER" minWidth="120" prefWidth="120" /> <!-- 固定宽度的标签列 -->
+            <ColumnConstraints hgrow="ALWAYS" /> <!-- 剩余空间的值列 -->
+        </columnConstraints>
+
+        <Label text="申请号:" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-weight: bold;" />
+        <TextField fx:id="applicationNumberValue" GridPane.columnIndex="1" GridPane.rowIndex="0" editable="false" />
+
+        <Label text="公开（公告）号:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-weight: bold;" />
+        <TextField fx:id="publicationNumberValue" GridPane.columnIndex="1" GridPane.rowIndex="1" editable="false" />
+
+        <Label text="申请日:" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-font-weight: bold;" />
+        <TextField fx:id="applicationDateValue" GridPane.columnIndex="1" GridPane.rowIndex="2" editable="false" />
+
+        <Label text="公开（公告）日:" GridPane.columnIndex="0" GridPane.rowIndex="3" style="-fx-font-weight: bold;" />
+        <TextField fx:id="publicationDateValue" GridPane.columnIndex="1" GridPane.rowIndex="3" editable="false" />
+
+        <Label text="IPC分类号:" GridPane.columnIndex="0" GridPane.rowIndex="4" style="-fx-font-weight: bold;" />
+        <TextField fx:id="ipcClassificationValue" GridPane.columnIndex="1" GridPane.rowIndex="4" editable="false" />
+
+        <Label text="文献类型:" GridPane.columnIndex="0" GridPane.rowIndex="5" style="-fx-font-weight: bold;" />
+        <TextField fx:id="documentTypeValue" GridPane.columnIndex="1" GridPane.rowIndex="5" editable="false" />
+
+        <Label text="发明名称:" GridPane.columnIndex="0" GridPane.rowIndex="6" style="-fx-font-weight: bold;" />
+        <TextField fx:id="inventionNameValue" GridPane.columnIndex="1" GridPane.rowIndex="6" editable="false" />
+
+        <Label text="发明人:" GridPane.columnIndex="0" GridPane.rowIndex="7" style="-fx-font-weight: bold;" />
+        <TextField fx:id="inventorValue" GridPane.columnIndex="1" GridPane.rowIndex="7" editable="false" />
+
+        <Label text="申请（专利权）人:" GridPane.columnIndex="0" GridPane.rowIndex="8" style="-fx-font-weight: bold;" />
+        <TextField fx:id="applicantValue" GridPane.columnIndex="1" GridPane.rowIndex="8" editable="false" />
+
+        <Label text="申请人所在国（省）:" GridPane.columnIndex="0" GridPane.rowIndex="9" style="-fx-font-weight: bold;" />
+        <TextField fx:id="applicantCountryValue" GridPane.columnIndex="1" GridPane.rowIndex="9" editable="false" />
+
+        <Label text="申请人邮编:" GridPane.columnIndex="0" GridPane.rowIndex="10" style="-fx-font-weight: bold;" />
+        <TextField fx:id="applicantPostalCodeValue" GridPane.columnIndex="1" GridPane.rowIndex="10" editable="false" />
+
+        <Label text="代理人:" GridPane.columnIndex="0" GridPane.rowIndex="11" style="-fx-font-weight: bold;" />
+        <TextField fx:id="agentValue" GridPane.columnIndex="1" GridPane.rowIndex="11" editable="false" />
+
+        <Label text="代理机构:" GridPane.columnIndex="0" GridPane.rowIndex="12" style="-fx-font-weight: bold;" />
+        <TextField fx:id="agencyValue" GridPane.columnIndex="1" GridPane.rowIndex="12" editable="false" />
+
+        <Label text="摘要:" GridPane.columnIndex="0" GridPane.rowIndex="14" style="-fx-font-weight: bold;" />
+        <TextArea fx:id="abstractValue" GridPane.columnIndex="1" GridPane.rowIndex="14" GridPane.columnSpan="1" wrapText="true" editable="false" />
+
+    </GridPane>
+</AnchorPane>
